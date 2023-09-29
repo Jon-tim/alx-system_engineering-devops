@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#  a Bash script that displays lines containing the bash word
+# shellcheck disable=SC2009
+ps aux | while IFS= read -r line
+do
+    if echo "$line" | grep -q "bash"; then
+        echo "$line"
+    fi
+done
