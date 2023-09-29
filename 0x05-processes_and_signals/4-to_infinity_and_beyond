@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # a Bash script that displays To infinity and beyond indefinitely
+echo $$ > /tmp/4_pid
 while true
 do
 echo "To infinity and beyond"
