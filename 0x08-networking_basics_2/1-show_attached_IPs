@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # a Bash script that displays all active IPv4 IPs on the machine
 # it’s executed on
-ifconfig | grep -oP '(?<=inet )(\S+)'
+# Use ifconfig to get network interface information and filter for IPv4 addresses
+ifconfig | grep -oP '(?<=inet )(\S+)' | cut -d ' ' -f 2
