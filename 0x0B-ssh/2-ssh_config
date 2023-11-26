@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Client configuration file
+
+Host 287491-web-01
+    HostName 54.88.195.227
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
