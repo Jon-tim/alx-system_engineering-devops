@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# a Bash script that transfers a file from our client to a server
+
+err="Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+
+# check if parameter is less than 4
+if [ "$#" -lt 4 ]; then
+	echo "$err"
+fi
+
+path="$1"
+ip="$2"
+username="$3"
+ssh_key="$4"
+
+scp -o StrictHostKeyChecking=no -i "$ssh_key" "$path" "$username@$ip":~/
