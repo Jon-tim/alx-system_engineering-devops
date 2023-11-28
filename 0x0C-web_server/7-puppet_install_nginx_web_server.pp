@@ -48,4 +48,3 @@ file { '/etc/nginx/sites-enabled/default':
   target => '/etc/nginx/sites-available/default',
   notify => Service['nginx'],
 }
-
