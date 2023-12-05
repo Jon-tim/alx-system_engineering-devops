@@ -2,7 +2,22 @@
 # Double the number of webservers
 
 sudo apt-get -y update
-sudo apt-get -y install nginx
-echo "add_header X-Served-By $(hostname);" | sudo tee -a /etc/nginx/sites-available/default
-sudo nginx -t
-sudo service nginx restart
+
+if ! command -v nginx &> /dev/null
+then
+	echo "NGINX was't installed. Doing so now..."
+	sudo apt-get -y install nginx
+else
+	echo "Seems NGINX is already installed!"
+fi
+
+config_file="/etc/nginx/sites-available/default"
+if ! grep -q "add_header X-Served-By \$(hostname);" "$config_file"
+then
+	echo "Adding X-Served-By header to Nginx configuration..."
+	sudo sed -i "/server_name _/a\\
+    	add_header X-Served-By \$hostname;" "$config_file"
+	sudo nginx -t && sudo service nginx restart
+else
+	echo "X-Served-By header already exists in Nginx configuration."
+fi
