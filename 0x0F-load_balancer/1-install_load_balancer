@@ -21,8 +21,8 @@ frontend="frontend lb-01
 
 backend="backend nginx_webservers
         balance $lb_algo
-        server 287491-web-01 $ip1:80 check
-        server 287491-web-02 $ip2:80 check"
+        server web-01 $ip1:80 check
+        server web-02 $ip2:80 check"
 
 sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
 
