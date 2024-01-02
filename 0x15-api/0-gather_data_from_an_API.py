@@ -21,6 +21,6 @@ if __name__ == "__main__":
                   for item in r.json() if item.get("completed")]
     TOTAL_NUMBER_OF_TASKS = len(r.json())
 
-    print(f"Employee {EMPLOYEE_NAME} is done with"
+    print(f"Employee {EMPLOYEE_NAME} is done with "
           f"tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
     [print(f"\t {item}") for item in TASK_TITLE]
