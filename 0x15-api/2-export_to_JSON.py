@@ -20,5 +20,5 @@ if __name__ == "__main__":
                              "completed": item.get("completed"),
                              "username": USERNAME} for item in r.json()
                             ]}
-    with open("USER_ID.json", "w", encoding="utf-8") as file:
+    with open("USER_ID.json", "w") as file:
         json.dump(dictionary, file)
