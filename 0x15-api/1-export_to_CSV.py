@@ -22,6 +22,6 @@ if __name__ == "__main__":
         for item in r.json()
     ]
 
-    with open("USER_ID.csv", 'w', newline='') as file:
+    with open(f"{USER_ID}.csv", 'w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         writer.writerows(data)
